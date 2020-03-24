@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Users = require("./user-model");
 
-router.get("/", checkDepartment("sales"), (req, res) => {
+router.get("/", (req, res) => {
   Users.find()
     .then((users) => {
       res.status(200).json(users);
@@ -27,7 +27,7 @@ router.delete("/:id", checkDepartment("management"), (req, res) => {
     });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", checkDepartment("management"), (req, res) => {
   const id = req.params.id;
   const edits = req.body;
   Users.update(id, edits)
