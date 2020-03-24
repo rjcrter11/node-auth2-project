@@ -9,6 +9,7 @@ const { jwtSecret, hashRounds } = require("../config/secrets");
 
 router.post("/register", (req, res) => {
   let user = req.body;
+
   // const ROUNDS = process.env.HASHING_ROUNDS || 8;
   const hash = bcrypt.hashSync(user.password, hashRounds);
   user.password = hash;

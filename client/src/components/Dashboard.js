@@ -42,7 +42,12 @@ const Dashboard = () => {
 
   return (
     <div className="users-container">
-      <h1> Welcome {user.username}. Here's your team</h1>
+      {user.department === "management" ? (
+        <h1 className="portal">Management Portal</h1>
+      ) : (
+        <h1 className="portal">Employee Portal</h1>
+      )}
+      <h2 className="welcome"> Welcome {user.username}. Here's your team</h2>
       <div className="display-container">
         <div className="employee-box">
           {users.map((item) =>
@@ -59,18 +64,20 @@ const Dashboard = () => {
 
         <div className="manager-box">
           {user.department === "management" ? (
-            users.map((item) => (
-              <div className="wig-box" key={item.id}>
-                <h4> {item.username} </h4>
-                <h5>{item.department} </h5>
-                <div className="management-btns">
-                  {/* <button onClick={() => deleteUser(user)}>Remove</button> */}
-                  <button onClick={(e) => routeToUserEdit(e, item)}>
-                    Edit
-                  </button>
-                </div>
-              </div>
-            ))
+            users.map(
+              (item) =>
+                item.department !== "management" && (
+                  <div className="wig-box" key={item.id}>
+                    <h4> {item.username} </h4>
+                    <p>{item.department} </p>
+                    <div className="management-btns">
+                      <button onClick={(e) => routeToUserEdit(e, item)}>
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                )
+            )
           ) : (
             <div></div>
           )}

@@ -48,9 +48,9 @@ const FormikForm = withRouter(
       axiosWithAuth()
         .post("auth/register", values)
         .then((res) => {
-          // console.log("registration success", res);
+          console.log("registration success", res);
           window.localStorage.setItem("token", res.data.token);
-          props.history.push("/users");
+          props.history.push(`/users/`);
         })
         .catch((err) => console.log(err));
     }

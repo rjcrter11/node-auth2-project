@@ -14,8 +14,21 @@
   background-color: cadetblue;
 }
 
-.logo-container h2 {
+.logo-container h2,
+i {
   color: white;
+}
+.logo-container h2 {
+  font-size: 2rem;
+}
+.logo-container {
+  width: 35%;
+  display: flex;
+  align-items: center;
+}
+.logo-container i {
+  font-size: 2rem;
+  margin-right: 1%;
 }
 
 .links-container {
@@ -37,9 +50,18 @@
 
 /* === Dashboard === */
 
+.portal {
+  text-align: center;
+  padding: 3% 0;
+  background-color: floralwhite;
+  width: 100%;
+}
+
 .users-container {
   width: 80%;
-  padding: 0 2%;
+  margin: 0 auto;
+  padding: 0% 2%;
+  box-shadow: 1px 2px 4px 1px lightgray;
 }
 
 .user-box {
@@ -59,12 +81,15 @@
   flex-flow: row wrap;
   justify-content: center;
 }
+.manager-box p {
+  font-size: 0.75rem;
+}
 
 .wig-box {
   width: 40%;
   padding: 1% 1%;
   margin: 1% 1%;
-  border: 1px solid gray;
+  border: 1px solid rgba(161, 161, 161, 0.527);
 }
 
 .management-btns {

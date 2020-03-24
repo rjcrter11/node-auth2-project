@@ -17,7 +17,8 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <div className="logo-container">
-          <h2>This is a Logo</h2>
+          <i class="fas fa-head-side-cough"></i>
+          <h2>Don't go to work</h2>
         </div>
         <div className="links-container">
           <NavLink to="/users">Home</NavLink>
