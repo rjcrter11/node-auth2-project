@@ -38,12 +38,46 @@
 /* === Dashboard === */
 
 .users-container {
-  width: 50%;
+  width: 80%;
   padding: 0 2%;
 }
+
 .user-box {
-  width: 50%;
+  width: 49%;
+  margin-top: 4%;
   padding: 2% 0;
+  text-align: center;
+}
+.employee-box {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 5%;
+}
+
+.manager-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.wig-box {
+  width: 40%;
+  padding: 1% 1%;
+  margin: 1% 1%;
+  border: 1px solid gray;
+}
+
+.management-btns {
+  padding: 1% 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.management-btns button {
+  width: 30%;
+  padding: 1% 1%;
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-right: 2%;
 }
 
 /* === Login === */
@@ -129,6 +163,37 @@
   margin-bottom: 5%;
 }
 .register-form button:hover {
+  background-color: darkslategray;
+  color: white;
+}
+
+/* === User Edit === */
+
+.edits-container {
+  width: 50%;
+  padding: 4% 2%;
+}
+
+.edit-user-box {
+  width: 50%;
+  margin-top: 4%;
+  padding: 4% 0;
+  padding-bottom: 1%;
+  border: 1px solid lightblue;
+}
+
+.btn-row {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1%;
+}
+.btn-row button {
+  width: 30%;
+  padding: 1% 0.5%;
+  border-radius: 5px;
+}
+.btn-row button:hover {
   background-color: darkslategray;
   color: white;
 }

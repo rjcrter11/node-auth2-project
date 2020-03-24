@@ -4,6 +4,7 @@ import { Route, NavLink } from "react-router-dom";
 import Registration from "./components/Registration";
 import LoginForm from "./components/LoginForm";
 import Dashboard from "./components/Dashboard";
+import UserEdits from "./components/UserEdits";
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ function App() {
       <Route exact path="/signup" component={Registration} />
       <Route exact path="/signin" component={LoginForm} />
       <Route exact path="/users/:id" component={Dashboard} />
+      <Route exact path="/users/:id/edits" component={UserEdits} />
     </div>
   );
 }
