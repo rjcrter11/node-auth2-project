@@ -9,7 +9,7 @@ const Registration = ({ touched, errors }) => {
   return (
     <div className="form-container">
       <h3>Sign Up</h3>
-      <Form>
+      <Form className="register-form">
         <Field name="username" type="text" placeholder="username" />
         {touched.username && errors.username && (
           <p className="errors"> {errors.username} </p>
@@ -48,7 +48,7 @@ const FormikForm = withRouter(
       axiosWithAuth()
         .post("auth/register", values)
         .then((res) => {
-          console.log("registration success", res);
+          // console.log("registration success", res);
           window.localStorage.setItem("token", res.data.token);
           props.history.push("/users");
         })

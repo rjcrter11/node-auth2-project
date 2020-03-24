@@ -9,7 +9,7 @@ const LoginForm = ({ touched, errors }) => {
   return (
     <div className="login-container">
       <h3>Sign In</h3>
-      <Form>
+      <Form className="login-form">
         <Field name="username" type="text" placeholder="username" />
         {touched.username && errors.username && (
           <p className="errors"> {errors.username} </p>
@@ -18,10 +18,6 @@ const LoginForm = ({ touched, errors }) => {
         {touched.password && errors.password && (
           <p className="errors"> {errors.password} </p>
         )}
-        {/* <Field name="department" type="text" placeholder="department" />
-        {touched.department && errors.department && (
-          <p className="errors"> {errors.department} </p>
-        )} */}
         <button type="submit">Sign In</button>
       </Form>
     </div>
@@ -34,13 +30,11 @@ const FormikForm = withRouter(
       return {
         username: username || "",
         password: password || ""
-        // department: department || ""
       };
     },
     validationSchema: Yup.object().shape({
       username: Yup.string().required("A username is required"),
       password: Yup.string().required("A password is required")
-      // department: Yup.string().required("Your department is required")
     }),
     handleSubmit(values, { props }) {
       axiosWithAuth()
@@ -48,7 +42,7 @@ const FormikForm = withRouter(
         .then((res) => {
           console.log("Login success", res);
           window.localStorage.setItem("token", res.data.token);
-          props.history.push("/users");
+          props.history.push(`/users/${res.data.user.id}`);
         })
         .catch((err) => console.log(err));
     }
