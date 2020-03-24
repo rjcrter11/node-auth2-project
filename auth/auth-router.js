@@ -3,13 +3,14 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const Users = require("../users/user-model");
-const { jwtSecret } = require("../config/secrets");
+const { jwtSecret, hashRounds } = require("../config/secrets");
 
 // for /api/auth
 
 router.post("/register", (req, res) => {
   let user = req.body;
-  const hash = bcrypt.hashSync(user.password, 8);
+  // const ROUNDS = process.env.HASHING_ROUNDS || 8;
+  const hash = bcrypt.hashSync(user.password, hashRounds);
   user.password = hash;
 
   Users.add(user)
@@ -17,7 +18,7 @@ router.post("/register", (req, res) => {
       res.status(201).json(saved);
     })
     .catch((err) => {
-      res.status(500).json({ message: "error registering user" });
+      res.status(500).json({ message: "error registering user", err });
     });
 });
 
